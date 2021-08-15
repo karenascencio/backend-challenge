@@ -18,7 +18,7 @@ const postSchema = new mongoose.Schema({
     content:{
         type:String,
         required:true,
-        minLength:300,
+        minLength:20,
         maxLength:1000,
     },
     cover_image:{
