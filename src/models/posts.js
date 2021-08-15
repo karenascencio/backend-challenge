@@ -60,7 +60,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    user:{ type: Schema.Types.ObjectId, ref: 'User' }
+    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 })
 //model
 const model = mongoose.model('posts',postSchema);

@@ -1,6 +1,7 @@
 //en el schema userSchema (singular)
 //en el modelo (plular)
 //los modelos se importan en singular.
+//en los ruters va en plural
 const server = require('./src/server.js');
 
 const dbConnect = require('./src/lib/db.js')
