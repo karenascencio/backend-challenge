@@ -1,4 +1,5 @@
 const User = require('../models/users')
+const Bcrypt = require('../lib/bcrypt') // importamos bcrypt
 
 function create(data){
     return User.create(data)
