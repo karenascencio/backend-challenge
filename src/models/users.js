@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         minLength: 2,
         maxLength: 50,
-        required: true
+        required: true,
+        match: /\d{2}\s\w{3}\.\s\d{4}/
     },
     bio: {
         type: String,
