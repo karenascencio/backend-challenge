@@ -75,7 +75,7 @@ router.patch('/:id', async (request, response) => {
             success: true,
             message: 'User updated!',
             data: {
-                koder: userUpdated
+                user: userUpdated
             }
         })
     } catch (error){
