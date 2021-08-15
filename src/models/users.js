@@ -8,31 +8,25 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     joinDate: {
-        name: {
-            type: Date,
-            minLength: 2,
-            maxLength: 50,
-            required: true
-        }
+        type: String,
+        minLength: 2,
+        maxLength: 50,
+        required: true
     },
     bio: {
-        name: {
-            type: String,
-            minLength: 2,
-            maxLength: 100,
-            required: true
-        }
+        type: String,
+        minLength: 2,
+        maxLength: 100,
+        required: true
     },
     nationality: {
-        name: {
-            type: String,
-            minLength: 2,
-            maxLength: 50,
-            required: true
-        }
+        type: String,
+        minLength: 2,
+        maxLength: 50,
+        required: true
     }
 })
 
-const model = mongoose.model('users')
+const model = mongoose.model('users', userSchema)
 
 module.exports = model
