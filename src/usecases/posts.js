@@ -1,5 +1,4 @@
 const Post = require('../models/posts');
-const User = require('../models/users')
 
 function getPosts(){
     return Post.find({}).populate('user');

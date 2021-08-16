@@ -12,6 +12,7 @@ title: "Titulo de prueba de Post Demo"
 user:referencia user.
 */
 
+const user = require('./users')
 const mongoose = require('mongoose');
 //Schema 
 const postSchema = new mongoose.Schema({
@@ -60,7 +61,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }
 })
 //model
 const model = mongoose.model('posts',postSchema);
