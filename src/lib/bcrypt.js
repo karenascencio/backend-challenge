@@ -1,5 +1,5 @@
 // Requiring the library bcrypt
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 
 
 function hash(plainText){
