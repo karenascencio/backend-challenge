@@ -25,6 +25,22 @@ const userSchema = new mongoose.Schema({
         minLength: 2,
         maxLength: 50,
         required: true
+    },
+    // .: Se agregan los campos requeridos para el login y la Auth.
+    username: {
+        type: String,
+        minLength: 4,
+        maxLength: 50,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+            },
+    email: {
+        type: String,
+        required: true,
+        match: /.*@.*\..*/,
     }
 })
 
