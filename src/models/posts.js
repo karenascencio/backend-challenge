@@ -48,6 +48,7 @@ const postSchema = new mongoose.Schema({
     },
     reading_time_minutes:{
         type:Number,
+        required:true
     },
     tag_list:{
         type:[String],
@@ -61,7 +62,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }
+    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 })
 //model
 const model = mongoose.model('posts',postSchema);
