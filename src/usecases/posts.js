@@ -1,7 +1,7 @@
 const Post = require('../models/posts');
 
 function getPosts(){
-    return Post.find({});
+    return Post.find({}).populate('user');
 }
 function getPostById(id){
     return Post.findById(id);

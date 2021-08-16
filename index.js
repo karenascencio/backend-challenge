@@ -10,7 +10,7 @@ dbConnect()
     .then(()=>{
         console.log('Database connected');
         server.listen(8080,()=>{
-            console.log('server listening on 8085');
+            console.log('server listening on 8080');
         })
     })
     .catch(err=>console.log(err))
