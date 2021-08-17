@@ -1,6 +1,7 @@
 const User = require('../models/users')
 const Bcrypt = require('../lib/bcrypt') // importamos bcrypt
 
+
 async function create(data){
     try{
         let {email, password} = data
