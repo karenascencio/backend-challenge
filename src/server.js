@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 const usersRouter = require('./routers/users');
-//const postsRouter = require('./routers/posts');
+const postsRouter = require('./routers/posts');
 const authRouter = require('./routers/auth');
 const cors = require('cors');
 
@@ -11,7 +11,8 @@ server.use(cors({
     origin:'*'
 }))
 server.use('/users', usersRouter)
-//server.use('/auth', authRouter)
+server.use('/posts', postsRouter)
+server.use('/auth', authRouter)
 
 
 
