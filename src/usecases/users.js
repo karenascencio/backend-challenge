@@ -14,11 +14,11 @@ async function create(data){
 }
 
 function getAll(){
-    return User.find()
+    return User.find().populate('posts')
 }
 
 function getById(id){
-    return User.find({_id: id})
+    return User.find({_id: id}).populate('posts')
 }
 
 function updateById(id, newData) { 
