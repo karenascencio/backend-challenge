@@ -11,8 +11,8 @@ server.use(cors({
     origin:'*'
 }))
 server.use('/users', usersRouter)
-server.use('/posts', authRouter)
 //server.use('/auth', authRouter)
+
 
 
 module.exports = server
