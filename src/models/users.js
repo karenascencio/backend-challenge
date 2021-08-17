@@ -41,6 +41,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         match: /.*@.*\..*/,
+    },
+    posts:{
+        type:[{ type: mongoose.Schema.Types.ObjectId, ref: 'posts' }],
+        default:[]
     }
 })
 

@@ -1,13 +1,20 @@
 const Post = require('../models/posts');
+const User = require('../models/users');
 
 function getPosts(){
     return Post.find({}).populate('user');
 }
 function getPostById(id){
-    return Post.findById(id);
+    return Post.findById(id).populate('user');
 }
-function createPost(post){
-    return Post.create(post);
+async function createPost(post){
+    let newPost =  await Post.create(post);
+    let user = await User.findById(newPost.user);
+    let {posts,_id} = user;
+    let updatedPosts = [...posts,newPost._id];
+    let updatedUser = await User.findByIdAndUpdate({_id},{posts:updatedPosts})
+    console.log(updatedUser);
+    return newPost
 }
 function updatePostbyId(id,newData){
     return Post.findByIdAndUpdate(id, newData);  
