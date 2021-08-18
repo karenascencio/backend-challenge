@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const users = require('../usecases/users')
+const verification = require ('../middlewares/authMiddle') 
 
 router.post('/', async (request, response) => {
     try{
@@ -23,7 +24,7 @@ router.post('/', async (request, response) => {
     }
     })
 
-router.get('/', async (request, response) => {
+router.get('/', verification, async (request, response) => {
     try{
         const allUsers = await users.getAll()
         response.json({
@@ -43,7 +44,7 @@ router.get('/', async (request, response) => {
     }
 })
 
-router.get('/:id', async (request, response) => {
+router.get('/:id', verification, async (request, response) => {
     try{
         const { id } = request.params
         const getUser = await users.getById(id)
@@ -64,7 +65,7 @@ router.get('/:id', async (request, response) => {
     }
 })
 
-router.patch('/:id', async (request, response) => {
+router.patch('/:id', verification, async (request, response) => {
     try{
         const { id } = request.params
         const { body } = request
@@ -88,7 +89,7 @@ router.patch('/:id', async (request, response) => {
     }
 })
 
-router.delete('/:id', async (request, response) => {
+router.delete('/:id', verification, async (request, response) => {
     try{
         const { id } = request.params
         const deletedUser = await users.remove(id)

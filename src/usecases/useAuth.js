@@ -1,6 +1,6 @@
-const User = require('../model/users');
+const User = require('../models/users');
 const bcrypt = require('../lib/bcrypt');
-const jwt = requires('../lib/jwt');
+const jwt = require('../lib/jwt');
 
 async function login(email, password){
     try{

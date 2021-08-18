@@ -18,7 +18,7 @@ function getAll(){
 }
 
 function getById(id){
-    return User.find({_id: id}).populate('posts')
+    return User.findById({_id: id}).populate('posts')
 }
 
 function updateById(id, newData) { 
