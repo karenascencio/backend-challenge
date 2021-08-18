@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const CODENAME = '603-f@$$&&%4_pu$$_p0wn3d';
+const { CODENAME } = process.env
 
 // .: Function that sign with a payload into a JWT
 function sign(payload){

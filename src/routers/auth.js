@@ -17,7 +17,7 @@ router.post('/login', async (request, response)=>{
         response.status(400);
         response.json({
             success: false,
-            message:  'Invalid tokensss',
+            message:  'Invalid tokens',
             error: error.message
         });
     }
