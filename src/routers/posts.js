@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Posts = require('../usecases/posts')
+const verification = require ('../middlewares/authMiddle') 
 
 
-router.get('/', async (request, response) => {
+router.get('/', verification, async (request, response) => {
     try{
         const posts = await Posts.getPosts()
         response.json({
@@ -22,7 +23,7 @@ router.get('/', async (request, response) => {
         })
     }
 })
-router.get('/:id', async (request, response) => {
+router.get('/:id', verification, async (request, response) => {
     try{
         const {id} = request.params;
         const post = await Posts.getPostById(id)
@@ -42,7 +43,7 @@ router.get('/:id', async (request, response) => {
         })
     }
 })
-router.post('/',async (request,response)=>{
+router.post('/', verification, async (request,response)=>{
     try{
         const post = await Posts.createPost(request.body);
         response.json({
@@ -61,7 +62,7 @@ router.post('/',async (request,response)=>{
         })
     }
 })
-router.patch('/:id',async (request,response)=>{
+router.patch('/:id', verification, async (request,response)=>{
     try{
         const {id} = request.params
         const post = await Posts.updatePostbyId(id,request.body);
@@ -81,7 +82,7 @@ router.patch('/:id',async (request,response)=>{
         })
     }
 })
-router.delete('/:id',async (request,response)=>{
+router.delete('/:id',verification, async (request,response)=>{
     try{
         const {id} = request.params
         const post = await Posts.deletePostById(id);
