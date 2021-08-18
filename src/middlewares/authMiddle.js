@@ -2,8 +2,8 @@ const jwt = require('../lib/jwt')
 
 function auth(request, response, next){
     try{
-        const {authorization: token} = request.header
-        const tokenDecoded = jws.verify(token)
+        const {authorization: token} = request.headers
+        const tokenDecoded = jwt.verify(token)
         if(!tokenDecoded) throw new Error('Not Authorized')
         next()
     } catch(error){

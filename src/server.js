@@ -5,7 +5,7 @@ const postsRouter = require('./routers/posts');
 const authRouter = require('./routers/auth');
 const cors = require('cors');
 
-server.use(express.json()); 
+server.use(express.json());
 
 server.use(cors({
     origin:'*'
