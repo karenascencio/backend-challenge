@@ -12,6 +12,7 @@ title: "Titulo de prueba de Post Demo"
 user:referencia user.
 */
 
+const user = require('./users')
 const mongoose = require('mongoose');
 //Schema 
 const postSchema = new mongoose.Schema({

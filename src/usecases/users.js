@@ -1,16 +1,24 @@
 const User = require('../models/users')
 const Bcrypt = require('../lib/bcrypt') // importamos bcrypt
 
-function create(data){
-    return User.create(data)
+
+async function create(data){
+    try{
+        let {email, password} = data
+        let emailExist = await User.findOne({email});
+        if(emailExist) throw new Error('The email is already in use');
+
+        let encryptedPassword = await Bcrypt.hash(password);
+        return User.create({...data, password: encryptedPassword});
+    } catch(error){console.log(error.message)}
 }
 
 function getAll(){
-    return User.find()
+    return User.find().populate('posts')
 }
 
 function getById(id){
-    return User.find({_id: id})
+    return User.findById({_id: id}).populate('posts')
 }
 
 function updateById(id, newData) { 
@@ -28,6 +36,3 @@ module.exports = {
     updateById,
     remove
 }
-
-
-
