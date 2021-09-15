@@ -33,6 +33,14 @@ const userSchema = new mongoose.Schema({
         maxLength: 50,
         required: true
     },
+    location:{
+        type: String,
+        required: true
+    },
+    education:{
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
@@ -46,7 +54,7 @@ const userSchema = new mongoose.Schema({
         type:[{ type: mongoose.Schema.Types.ObjectId, ref: 'posts' }],
         default:[]
     }
-})
+},{ timestamps: true })
 
 const model = mongoose.model('users', userSchema)
 

@@ -9,7 +9,7 @@ router.get('/', async (request, response) => {
         const posts = await Posts.getPosts()
         response.json({
             success: true,
-            message: 'todos los Post',
+            message: 'all Post',
             data: {
                 posts
             }
