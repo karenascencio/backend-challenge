@@ -3,13 +3,13 @@ const router = express.Router()
 const Posts = require('../usecases/posts')
 const verification = require ('../middlewares/authMiddle') 
 
-
-router.get('/', verification, async (request, response) => {
+//router.use(verification)
+router.get('/', async (request, response) => {
     try{
         const posts = await Posts.getPosts()
         response.json({
             success: true,
-            message: 'todos los Post',
+            message: 'all Post',
             data: {
                 posts
             }
@@ -23,7 +23,7 @@ router.get('/', verification, async (request, response) => {
         })
     }
 })
-router.get('/:id', verification, async (request, response) => {
+router.get('/:id', async (request, response) => {
     try{
         const {id} = request.params;
         const post = await Posts.getPostById(id)
@@ -43,7 +43,7 @@ router.get('/:id', verification, async (request, response) => {
         })
     }
 })
-router.post('/', verification, async (request,response)=>{
+router.post('/', async (request,response)=>{
     try{
         const post = await Posts.createPost(request.body);
         response.json({
@@ -62,7 +62,7 @@ router.post('/', verification, async (request,response)=>{
         })
     }
 })
-router.patch('/:id', verification, async (request,response)=>{
+router.patch('/:id', async (request,response)=>{
     try{
         const {id} = request.params
         const post = await Posts.updatePostbyId(id,request.body);
@@ -82,7 +82,7 @@ router.patch('/:id', verification, async (request,response)=>{
         })
     }
 })
-router.delete('/:id',verification, async (request,response)=>{
+router.delete('/:id',async (request,response)=>{
     try{
         const {id} = request.params
         const post = await Posts.deletePostById(id);
