@@ -18,13 +18,13 @@ const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
     content:{
         type:String,
-        required:true,
+        required:false,
         minLength:20,
         maxLength:1000,
     },
     cover_image:{
         type:String,
-        required:true,
+        required:false,
     },
     positive_reactions_count:{
         type:Number,
@@ -33,34 +33,34 @@ const postSchema = new mongoose.Schema({
     },
     published_at:{
         type:Date,
-        required:true,
+        required:false,
         // match:/\d{4}-\d{2}-\d{2}.{1}\d{2}:\d{2}:\d{2}.\d{3}.{1}/g
     },
     published_timestamp:{
         type:Date,
-        required:true,
+        required:false,
         // match:/\d{4}-\d{2}-\d{2}.{1}\d{2}:\d{2}:\d{2}.\d{3}.{1}/g
     },
     readable_publish_date:{
         type:String,
-        required:true,
+        required:false,
         match:/\w{3}\s\d{2}/g
     },
     reading_time_minutes:{
         type:Number,
-        required:true
+        required:false
     },
     tag_list:{
         type:[String],
-        required:true
+        required:false
     },
     tags:{
         type:String,
-        required:true
+        required:false
     },
     title:{
         type:String,
-        required:true
+        required:false
     },
     user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 },{ timestamps: true })
