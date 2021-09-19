@@ -4,7 +4,7 @@ const usersRouter = require('./routers/users');
 const postsRouter = require('./routers/posts');
 const authRouter = require('./routers/auth');
 const cors = require('cors');
-
+//corregimos los errores de la karen
 server.use(express.json());
 server.use(express.urlencoded());
 
