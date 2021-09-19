@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const users = require('../usecases/users')
 const verification = require ('../middlewares/authMiddle') 
-
+//bugFix
 router.post('/', async (request, response) => {
     try{
         const userData = request.body
