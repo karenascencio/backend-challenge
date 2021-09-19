@@ -2,20 +2,20 @@ const express = require('express')
 const router = express.Router()
 const users = require('../usecases/users')
 const verification = require ('../middlewares/authMiddle') 
-
+//bugFix
 router.post('/', async (request, response) => {
     try{
         const userData = request.body
         const userCreated = await users.create(userData)
-        if(!Object.keys(userCreated).length){
-            response.json({
-                success: true,
-                message: 'Successfully created!',
-                data: {
-                    userCreated
+        
+        response.json({
+            success: true,
+            message: 'Successfully created!',
+            data: {
+                userCreated
                 }
             })
-        }
+        
         
     } catch (error) {
         response.status(400)
