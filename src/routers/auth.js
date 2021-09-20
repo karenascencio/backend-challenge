@@ -14,10 +14,9 @@ router.post('/login', async (request, response)=>{
             }
         });
     } catch(error){
-        response.status(400);
         response.json({
             success: false,
-            message:  'Invalid tokens',
+            message:  'Invalid credentials',
             error: error.message
         });
     }
