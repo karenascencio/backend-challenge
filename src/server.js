@@ -8,7 +8,7 @@ const cors = require('cors');
 server.use(express.json());
 server.use(express.urlencoded());
 
-
+//quitamos la logica del bucket
 server.use(cors({
     origin:'*'
 }))
