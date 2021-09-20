@@ -2,10 +2,18 @@ const Post = require('../models/posts');
 const User = require('../models/users');
 
 function getPosts(){
-    return Post.find({}).populate('user');
+    return Post.find({}).populate('user').populate({
+        path:     'comments',			
+        populate: { path:  'user',
+                model: 'users' }
+      })
 }
 function getPostById(id){
-    return Post.findById(id).populate('user');
+    return Post.findById(id).populate('user').populate({
+        path:     'comments',			
+        populate: { path:  'user',
+                model: 'users' }
+      })
 }
 async function createPost(post){
     let newPost =  await Post.create(post);
