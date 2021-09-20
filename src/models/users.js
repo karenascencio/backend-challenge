@@ -5,49 +5,49 @@ const userSchema = new mongoose.Schema({
         type: String,
         minLength: 2,
         maxLength: 50,
-        required: true
+        required:false
     },
     joinDate: {
         type: String,
         minLength: 2,
         maxLength: 50,
-        required: true,
+        required:false,
         match: /\d{2}\s\w{3}\.\s\d{4}/
     },
     bio: {
         type: String,
         minLength: 2,
         maxLength: 100,
-        required: true
+        required:false
     },
     nationality: {
         type: String,
         minLength: 2,
         maxLength: 50,
-        required: true
+        required:false
     },
     // .: Se agregan los campos requeridos para el login y la Auth.
     username: {
         type: String,
         minLength: 4,
         maxLength: 50,
-        required: true
+        required:false
     },
     location:{
         type: String,
-        required: true
+        required:false
     },
     education:{
         type: String,
-        required: true
+        required:false
     },
     password: {
         type: String,
-        required: true
+        required:false
             },
     email: {
         type: String,
-        required: true,
+        required:false,
         match: /.*@.*\..*/,
     },
     posts:{
