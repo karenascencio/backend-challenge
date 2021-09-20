@@ -62,6 +62,26 @@ router.post('/', async (request,response)=>{
         })
     }
 })
+router.patch('/:id/comment', async (request,response)=>{
+    try{
+        const {id} = request.params
+        const post = await Posts.addCommentByPostId(id,request.body);
+        response.json({
+            success: true,
+            message: `Actualizamos el post correctamente`,
+            data: {
+                post
+            }
+        })
+    } catch (error) {
+        response.status(400)
+        response.json({
+            success: false,
+            message: 'fallamos al actualizar el post',
+            error: error.message
+        })
+    }
+})
 router.patch('/:id', async (request,response)=>{
     try{
         const {id} = request.params

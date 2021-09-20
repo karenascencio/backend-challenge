@@ -17,7 +17,11 @@ async function createPost(post){
     return newPost
 }
 function updatePostbyId(id,newData){
-    return Post.findByIdAndUpdate(id, newData);  
+    return Post.findByIdAndUpdate(id, newData,{new: true});  
+}
+function addCommentByPostId(_id,newComment){
+    return Post.findByIdAndUpdate({_id}, {
+            $push: {comments: newComment} },{new: true});  
 }
 function deletePostById(id){
     return Post.findByIdAndRemove(id);
@@ -28,6 +32,7 @@ module.exports = {
     getPostById,
     createPost,
     updatePostbyId,
+    addCommentByPostId,
     deletePostById
 }
 
