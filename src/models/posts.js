@@ -78,6 +78,14 @@ const postSchema = new mongoose.Schema({
             user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }
         }
     ],
+    reactions_count:{
+        type:Number,
+        required:false,
+        default:0
+    },
+    reactions:[
+        { type: mongoose.Schema.Types.ObjectId, ref: 'users' ,required:false}
+    ],
     user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' ,required:false}
 },{ timestamps: true })
 //model
