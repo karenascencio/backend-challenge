@@ -1,7 +1,7 @@
 const User = require('../models/users');
 const bcrypt = require('../lib/bcrypt');
 const jwt = require('../lib/jwt');
-
+//ahora el jwt regresa mas informacion
 async function login(email, password){
     try{
         const emailFound = await User.findOne({email})
