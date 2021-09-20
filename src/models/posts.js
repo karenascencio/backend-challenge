@@ -63,6 +63,21 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:false
     },
+    comments: [
+        {
+            content: String,
+            published_timestamp:{
+                type:Date,
+                required:false,
+            },
+            readable_publish_date:{
+                type:String,
+                required:false,
+                match:/\w{3}\s\d{2}/g
+            },
+            user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }
+        }
+    ],
     user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' ,required:false}
 },{ timestamps: true })
 //model
