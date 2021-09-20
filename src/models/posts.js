@@ -14,13 +14,13 @@ user:referencia user.
 
 const user = require('./users')
 const mongoose = require('mongoose');
-//Schema 
+//Schema modificado para permitir todo
 const postSchema = new mongoose.Schema({
     content:{
         type:String,
         required:false,
-        minLength:20,
-        maxLength:1000,
+        //minLength:20,
+        //maxLength:1000,
     },
     cover_image:{
         type:String,
@@ -30,6 +30,7 @@ const postSchema = new mongoose.Schema({
         type:Number,
         default:0,
         min:0,
+        required:false,
     },
     published_at:{
         type:Date,
@@ -62,7 +63,6 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:false
     },
-    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' },
     comments: [
         {
             content: String,
@@ -77,7 +77,8 @@ const postSchema = new mongoose.Schema({
             },
             user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }
         }
-    ]
+    ],
+    user:{ type: mongoose.Schema.Types.ObjectId, ref: 'users' ,required:false}
 },{ timestamps: true })
 //model
 const model = mongoose.model('posts',postSchema);
