@@ -3,7 +3,7 @@ const router = express.Router()
 const Posts = require('../usecases/posts')
 const verification = require ('../middlewares/authMiddle') 
 
-
+//logica del bucket
 //librerias para subir la imagen a bucket
 const multer = require("multer");
 const path = require('path')
